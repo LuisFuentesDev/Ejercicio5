@@ -32,6 +32,10 @@ public class AdapterWords extends RecyclerView.Adapter<AdapterWords.ViewHolder> 
         return words.size();
     }
 
+    public void setData(List<String> data) {
+        this.words = data;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemBinding itemBinding;
 
