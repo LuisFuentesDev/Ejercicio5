@@ -1,5 +1,6 @@
 package com.example.ejercicio5;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicio5.databinding.ItemBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterWords extends RecyclerView.Adapter<AdapterWords.ViewHolder> {
@@ -34,6 +36,15 @@ public class AdapterWords extends RecyclerView.Adapter<AdapterWords.ViewHolder> 
 
     public void setData(List<String> data) {
         this.words = data;
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void addData(String Clicked) {
+        if (words == null) {
+            words = new ArrayList<>();
+        }
+        words.add(Clicked);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -70,15 +70,15 @@ public class FragmentList extends Fragment {
         binding.RecyclerViewList.setAdapter(adapter);
 
         return binding.getRoot();
-
-
     }
 
     public List<String> getData() {
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             data.add("word " + i);
+
         }
         return data;
     }
+
 }
