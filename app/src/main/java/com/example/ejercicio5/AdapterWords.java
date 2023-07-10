@@ -38,14 +38,6 @@ public class AdapterWords extends RecyclerView.Adapter<AdapterWords.ViewHolder> 
         this.words = data;
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    public void addData(String Clicked) {
-        if (words == null) {
-            words = new ArrayList<>();
-        }
-        words.add(Clicked);
-        notifyDataSetChanged();
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemBinding itemBinding;

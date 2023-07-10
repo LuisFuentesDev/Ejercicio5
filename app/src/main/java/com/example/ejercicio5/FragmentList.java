@@ -60,24 +60,29 @@ public class FragmentList extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    private List<String> data = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentListBinding binding = FragmentListBinding.inflate(getActivity().getLayoutInflater());
         AdapterWords adapter = new AdapterWords();
-        adapter.setData(getData());
+
+        data = getData();
+        adapter.setData(data);
+
         binding.RecyclerViewList.setAdapter(adapter);
 
+        binding.floatingActionButton.setOnClickListener(v -> {
+            data.add("word " + data.size());
+            binding.RecyclerViewList.getAdapter().notifyItemInserted(data.size());
+        });
+
         return binding.getRoot();
+
+
     }
+    private List<String> getData() {
 
-    public List<String> getData() {
-        List<String> data = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            data.add("word " + i);
-
-        }
         return data;
     }
 
